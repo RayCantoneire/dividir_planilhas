@@ -1,0 +1,12 @@
+import pandas as pd
+
+diretorio = ('/content/Teste PC.xlsx')
+arquivos = pd.read_excel(diretorio)
+
+lista_unidades = sorted(arquivos['UNIDADE'].unique())
+print(lista_unidades)
+len(lista_unidades)
+
+
+for i in lista_unidades:
+  arquivos[arquivos['UNIDADE'] == i].to_excel('{}.xlsx'.format(i), index = False)
